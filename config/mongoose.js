@@ -1,15 +1,11 @@
-/****************IMPORTING PACKAGE*******************************/
-const mongoose = require("mongoose");
+const chalk = require('chalk');
+const mongoose = require('mongoose');
 
-/*******************MAKING CONNECTION***************************/
-mongoose.connect("mongodb://127.0.0.1:27017/CSV");
-//setting it to db
-const db = mongoose.connection;
+main().catch(err => console.log(chalk.red.inverse(err)));
 
-/****************CHECKING CONNECTION****************************/
-//if error occurs
-db.on("error", console.error.bind(console, "Error connecting to DB"));
-// when db connects successfully
-db.once("open", function(){
-    console.log("Successfully connected to DB");
-});
+async function main() {
+  await mongoose.connect('mongodb://127.0.0.1/CSV');
+  console.log(chalk.green.inverse("Successfully connected to DataBase."))
+}
+const db=mongoose.connect;
+module.exports=db;

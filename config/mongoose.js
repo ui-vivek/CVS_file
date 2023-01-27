@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 main().catch(err => console.log(chalk.red.inverse(err)));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://csvfilecheckernodejs-user:csvfilecheckernodejs-user@cluster0.lzeuen4.mongodb.net/cccccc?retryWrites=true&w=majority');
+  await mongoose.connect('mongodb://127.0.0.1/test');
   console.log(chalk.green.inverse("Successfully connected to DataBase."))
 }
 const db=mongoose.connect;

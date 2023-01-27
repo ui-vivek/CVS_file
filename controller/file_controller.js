@@ -6,11 +6,11 @@ const File = require("../models/files");
 
 /**********EXPORTING FUNCTION FOR View ROUTE******************/
 module.exports.View = async function(req, res){
-    console.log("view");
-    console.log(req.params.file);
+    // console.log("view");
+    // console.log(req.params.file);
     let filePATH = await File.findOne({file: req.params.file});
-    console.log(filePATH);
-    console.log(filePATH.filePath);
+    // console.log(filePATH);
+    // console.log(filePATH.filePath);
     const results = [];
     const header =[];
     fs.createReadStream(filePATH.filePath)
@@ -24,9 +24,9 @@ module.exports.View = async function(req, res){
     .on('data', (data) =>
     results.push(data))
     .on('end', () => {
-        console.log(header);
-        console.log(results.length);
-        console.log(results);
+        // console.log(header);
+        // console.log(results.length);
+        // console.log(results);
         res.render("file", {
             title: filePATH.originalName,
             head: header,

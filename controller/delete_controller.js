@@ -12,11 +12,11 @@ module.exports.delete = async function(req, res){
         let isFile = await File.findOne({file: filename});
         if(isFile){
             await File.deleteOne({file: filename});
-            console.log("File Deleted");
+            // console.log("File Deleted");
             
             return res.redirect("/");
         }else{
-            console.log("file not found");
+            // console.log("file not found");
             return res.redirect("/");
         }
     }catch(err){

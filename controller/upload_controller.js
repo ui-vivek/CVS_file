@@ -15,13 +15,13 @@ module.exports.Upload = function (req, res) {
       if (err) {
         console.log("multer Error", err);
       }
-      console.log(req.file);
+      // console.log(req.file);
       if (
         (req.file && req.file.mimetype == "application/vnd.ms-excel") ||
         (req.file && req.file.mimetype == "text/csv")
       ) {
-        console.log("true");
-        console.log(req.file);
+        // console.log("true");
+        // console.log(req.file);
         File.create(
           {
             filePath: req.file.path,
@@ -40,7 +40,7 @@ module.exports.Upload = function (req, res) {
           }
         );
       } else {
-        console.log("Please Upload CSV Format file");
+        // console.log("Please Upload CSV Format file");
 
         return res.redirect("/");
       }
